@@ -15,6 +15,7 @@ import WeatherSkeleton from "../src/components/loading-skeleton";
 import CurrentWeather from "../src/components/current-weather";
 import HourlyTemperatures from "../src/components/hourly-temperatures";
 import WeatherDetails from "../src/components/weather-details";
+import WeatherForecast from "../src/components/weather-forecast";
 
 export function WeatherDashboard() {
   const {
@@ -123,9 +124,18 @@ export function WeatherDashboard() {
           />
           <WeatherDetails data={weatherQuery.data} />
         </div>
+
         {/* Right Column */}
-        <div className="flex flex-col gap-4">
-          <HourlyTemperatures data={forecastQuery.data} />
+        <div className="flex gap-6">
+          {/* Make HourlyTemperatures slightly wider */}
+          <div className="flex-1">
+            <HourlyTemperatures data={forecastQuery.data} />
+          </div>
+
+          {/* Flexible Height for WeatherForecast */}
+          <div className="flex-1 overflow-y-auto">
+            <WeatherForecast data={forecastQuery.data} />
+          </div>
         </div>
       </div>
     </div>
