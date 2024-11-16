@@ -4,7 +4,18 @@ import { ThemeProvider } from "./components/theme-provider";
 import WeatherDashboard from "../pages/weather-dashboard";
 import CityDashboard from "../pages/city-dashboard";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-const queryClient = new QueryClient();
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000,
+      gcTime: 10 * 60 * 1000,
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 function App() {
