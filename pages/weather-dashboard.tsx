@@ -14,6 +14,7 @@ import { useGeolocation } from "../hooks/use-geolocation";
 import WeatherSkeleton from "../src/components/loading-skeleton";
 import CurrentWeather from "../src/components/current-weather";
 import HourlyTemperatures from "../src/components/hourly-temperatures";
+import WeatherDetails from "../src/components/weather-details";
 
 export function WeatherDashboard() {
   const {
@@ -113,16 +114,18 @@ export function WeatherDashboard() {
         </Button>
       </div>
 
-      <div className="grid gap-6">
-        <div className="flex flex-col lg:flex-row gap-4">
+      <div className="grid gap-6 lg:grid-cols-2">
+        {/* Left Column */}
+        <div className="flex flex-col md:flex-row gap-6">
           <CurrentWeather
             data={weatherQuery.data}
             locationName={locationName}
           />
-          <HourlyTemperatures data={forecastQuery.data} />
+          <WeatherDetails data={weatherQuery.data} />
         </div>
-        <div className="grid gap-6 md:grid-cols-2 items-start">
-          {/* Details */}
+        {/* Right Column */}
+        <div className="flex flex-col gap-4">
+          <HourlyTemperatures data={forecastQuery.data} />
         </div>
       </div>
     </div>

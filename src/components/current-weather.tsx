@@ -15,11 +15,12 @@ const CurrentWeather = ({ data, locationName }: CurrentWeatherProps) => {
   } = data;
 
   const formattedTemp = (temp: number) => `${Math.round(temp)}°C`;
+
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden w-full">
       <CardContent className="p-6">
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="space-y-4">
+        <div className="flex flex-col md:flex-row gap-6">
+          <div className="space-y-4 flex-1">
             <div className="space-y-2">
               <div className="flex items-end gap-1">
                 <h2 className="text-2xl font-bold tracking-tight">
