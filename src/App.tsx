@@ -17,6 +17,7 @@ const queryClient = new QueryClient({
 });
 
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Toaster } from "sonner";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
               <Route path="/city/:name" element={<CityDashboard />} />
             </Routes>
           </Layout>
+          <Toaster richColors />
         </BrowserRouter>
       </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} />
