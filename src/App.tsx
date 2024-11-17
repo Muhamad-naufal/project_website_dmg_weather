@@ -22,11 +22,13 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-        <BrowserRouter>
+        <BrowserRouter
+          future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+        >
           <Layout>
             <Routes>
               <Route path="/" element={<WeatherDashboard />} />
-              <Route path="/city/" element={<CityDashboard />} />
+              <Route path="/city/:name" element={<CityDashboard />} />
             </Routes>
           </Layout>
         </BrowserRouter>
